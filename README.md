@@ -95,11 +95,6 @@ Unseal Key 5: TFYSjAWOjHBARjXBblZuVovtxNnHnSuuHwBthhym8VxL
 Initial Root Token: db2c7fae-7162-d09e-7901-66d47360c62f
 ```
 
-Authenticate with the root token, for example:
-
-```
-vault auth db2c7fae-7162-d09e-7901-66d47360c62f
-```
 
 Unseal Vault with three of five unseal keys, for example:
 
@@ -107,6 +102,12 @@ Unseal Vault with three of five unseal keys, for example:
 vault unseal w6rUcrlOEd4tI0MNtCYxG2uUoGj8wG9euXm4RiHq7BDh
 vault unseal tkGGsCQJeNyORbz2uRyWjCq03kj/OPtGzmM/Bjv9+RTP
 vault unseal 584Sg15Itt8zJpiJOBh+1IVKp56Hv9FiryiK63dztA7C
+```
+
+Authenticate with the root token, for example:
+
+```
+vault auth db2c7fae-7162-d09e-7901-66d47360c62f
 ```
 
 Finally, you can read and write Valut :)
@@ -124,9 +125,9 @@ vaule           	world
 
 ## Unseal when restarting
 
-Because Vault seals when it restarts. You need to unseal automatically to keep Vault available in CF environment.
+Because Vault seals when it restarts, you need to unseal automatically in order to keep Vault available in CF environment.
 
-If you set environment variables `VAULT_TOKEN` and `VAULT_UNSEAL_KEY1`, `VAULT_UNSEAL_KEY2`, `VAULT_UNSEAL_KEY3` at the start up.
+If you set environment variables `VAULT_TOKEN` and `VAULT_UNSEAL_KEY1`, `VAULT_UNSEAL_KEY2`, `VAULT_UNSEAL_KEY3`, Vaule will be unsealed at the start up
 
 For example:
 
@@ -137,7 +138,7 @@ cf set-env cf-vault VAULT_UNSEAL_KEY2 tkGGsCQJeNyORbz2uRyWjCq03kj/OPtGzmM/Bjv9+R
 cf set-env cf-vault VAULT_UNSEAL_KEY3 584Sg15Itt8zJpiJOBh+1IVKp56Hv9FiryiK63dztA7
 ```
 
-you can `cf restart cf-vault` nad `cf-vault` will be available.
+you can `cf restart cf-vault` and `cf-vault` will be available.
 Of course you can set these variables in your `manifest.yml`.
 
 Note that this way is [not recommended](https://www.vaultproject.io/docs/concepts/seal.html#unsealing) by Hashicorp.
