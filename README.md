@@ -16,7 +16,7 @@ cf create-service cleardb spark vault-db
 If your are using Pivotal Cloud Foundry:
 
 ```
-cf create-service 100mb-dev vault-db
+cf create-service p-mysql 100mb-dev vault-db
 ```
 
 ## Deploy Vault
