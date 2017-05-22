@@ -142,3 +142,7 @@ you can `cf restart cf-vault` and `cf-vault` will be available.
 Of course you can set these variables in your `manifest.yml`.
 
 Note that this way is [not recommended](https://www.vaultproject.io/docs/concepts/seal.html#unsealing) by Hashicorp.
+
+## Deploy service broker
+
+You can also deploy [Vault Service Broker](https://github.com/hashicorp/cf-vault-service-broker) prodivedby Hashicorp easily :)
