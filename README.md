@@ -1,6 +1,6 @@
 # Vault on Cloud Foundry
 
-** This repository is not for production use. **
+**This repository is not for production use.**
 
 This vault server uses MySQL as a storage backend.
 
