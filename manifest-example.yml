@@ -10,7 +10,6 @@ applications:
    # for PWS
    # cf cs cleardb spark vault-db
   #env:
-  #  VAULT_TOKEN: db2c7fae-7162-d09e-7901-66d47360c62f
   #  VAULT_UNSEAL_KEY1: w6rUcrlOEd4tI0MNtCYxG2uUoGj8wG9euXm4RiHq7BDh
   #  VAULT_UNSEAL_KEY2: tkGGsCQJeNyORbz2uRyWjCq03kj/OPtGzmM/Bjv9+RTP
   #  VAULT_UNSEAL_KEY3: 584Sg15Itt8zJpiJOBh+1IVKp56Hv9FiryiK63dztA7C
