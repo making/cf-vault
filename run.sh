@@ -38,7 +38,7 @@ echo "#### Starting Vault..."
 
 ./vault server -config=cf.hcl &
 
-if [ "$VAULT_TOKEN" != "" ];then
+if [ "$VAULT_UNSEAL_KEY1" != "" ];then
 	export VAULT_ADDR='http://127.0.0.1:8080'
 	echo "#### Waiting..."
 	sleep 1
