@@ -127,18 +127,17 @@ vaule           	world
 
 Because Vault seals when it restarts, you need to unseal automatically in order to keep Vault available in CF environment.
 
-If you set environment variables `VAULT_TOKEN` and `VAULT_UNSEAL_KEY1`, `VAULT_UNSEAL_KEY2`, `VAULT_UNSEAL_KEY3`, Vaule will be unsealed at the start up
+If you set environment variables `VAULT_UNSEAL_KEY1`, `VAULT_UNSEAL_KEY2` and `VAULT_UNSEAL_KEY3`, Vaule will be unsealed at the start up
 
 For example:
 
 ```
-cf set-env cf-vault VAULT_TOKEN db2c7fae-7162-d09e-7901-66d47360c62f
 cf set-env cf-vault VAULT_UNSEAL_KEY1 w6rUcrlOEd4tI0MNtCYxG2uUoGj8wG9euXm4RiHq7BDh
 cf set-env cf-vault VAULT_UNSEAL_KEY2 tkGGsCQJeNyORbz2uRyWjCq03kj/OPtGzmM/Bjv9+RTP
 cf set-env cf-vault VAULT_UNSEAL_KEY3 584Sg15Itt8zJpiJOBh+1IVKp56Hv9FiryiK63dztA7
 ```
 
-you can `cf restart cf-vault` and `cf-vault` will be available.
+Even if you do `cf restart cf-vault` or `cf restage cf-vaault`, `cf-vault` will be available.
 Of course you can set these variables in your `manifest.yml`.
 
 Note that this way is [not recommended](https://www.vaultproject.io/docs/concepts/seal.html#unsealing) by Hashicorp.
