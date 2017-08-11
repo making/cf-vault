@@ -26,6 +26,7 @@ storage "mysql" {
   address = "$HOSTNAME:$PORT"
   database = "$DATABASE"
   table = "vault"
+  max_parallel = 4
 }
 
 listener "tcp" {
