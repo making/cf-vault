@@ -112,7 +112,7 @@ vault operator unseal 584Sg15Itt8zJpiJOBh+1IVKp56Hv9FiryiK63dztA7C
 Authenticate with the root token, for example:
 
 ```
-vault auth db2c7fae-7162-d09e-7901-66d47360c62f
+vault login db2c7fae-7162-d09e-7901-66d47360c62f
 ```
 
 Finally, you can read and write Valut :)
