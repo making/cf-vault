@@ -1,5 +1,6 @@
 applications:
-- name: cf-vault
+- name: vault
+  random-route: true
   buildpack: binary_buildpack
   memory: 64m
   command: './run.sh'

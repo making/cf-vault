@@ -18,8 +18,8 @@ USERNAME=`echo $VCAP_SERVICES | jq -r '.["'$SERVICE'"][0].credentials.username'`
 DATABASE=`echo $VCAP_SERVICES | jq -r '.["'$SERVICE'"][0].credentials.name'`
 
 cat <<EOF > cf.hcl
+ui = true
 disable_mlock = true
-
 storage "mysql" {
   username = "$USERNAME"
   password = "$PASSWORD"
@@ -28,7 +28,6 @@ storage "mysql" {
   table = "vault"
   max_parallel = 4
 }
-
 listener "tcp" {
  address = "0.0.0.0:8080"
  tls_disable = 1
@@ -40,19 +39,17 @@ echo "#### Starting Vault..."
 ./vault server -config=cf.hcl &
 
 if [ "$VAULT_UNSEAL_KEY1" != "" ];then
-	export VAULT_ADDR='http://127.0.0.1:8080'
-	echo "#### Waiting..."
-	sleep 1
-	echo "#### Unsealing..."
-	if [ "$VAULT_UNSEAL_KEY1" != "" ];then
-		./vault unseal $VAULT_UNSEAL_KEY1
-	fi
-	if [ "$VAULT_UNSEAL_KEY2" != "" ];then
-		./vault unseal $VAULT_UNSEAL_KEY2
-	fi
-	if [ "$VAULT_UNSEAL_KEY3" != "" ];then
-		./vault unseal $VAULT_UNSEAL_KEY3
-	fi
+    export VAULT_ADDR='http://127.0.0.1:8080'
+    echo "#### Waiting..."
+    sleep 1
+    echo "#### Unsealing..."
+    if [ "$VAULT_UNSEAL_KEY1" != "" ];then
+        ./vault operator unseal $VAULT_UNSEAL_KEY1
+    fi
+    if [ "$VAULT_UNSEAL_KEY2" != "" ];then
+        ./vault operator unseal $VAULT_UNSEAL_KEY2
+    fi
+    if [ "$VAULT_UNSEAL_KEY3" != "" ];then
+        ./vault operator unseal $VAULT_UNSEAL_KEY3
+    fi
 fi
-
-
